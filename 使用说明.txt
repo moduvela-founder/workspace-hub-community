@@ -1,0 +1,37 @@
+Workspace Hub 使用说明（Git clone / ZIP 通用）
+
+准备 Node.js >=22.13 和 pnpm 11.25.0（以 package.json 为准）；首次安装依赖需要联网。
+
+1. 获取源码：
+   git clone https://github.com/moduvela-founder/workspace-hub-community.git
+   cd workspace-hub-community
+   或从 GitHub 下载 ZIP，解压后在终端进入解压目录。
+
+2. 预览配置、确认后初始化，再安装并启动：
+   node scripts/setup-share.mjs
+   node scripts/setup-share.mjs --apply
+   pnpm install --ignore-scripts --frozen-lockfile
+   pnpm build
+   pnpm start
+   打开 http://127.0.0.1:4176/hub，终端保持运行，Ctrl+C 停止。
+   初始化只登记工具自身及一个虚构 demo-project，拒绝覆盖已有配置。
+
+3. 如要在第一次初始化时选择目录，使用下列命令替代上面的 setup-share.mjs --apply；先去掉 --apply 预览：
+   node scripts/setup-share.mjs --projects-root "/自己的现有项目目录" --large-files-root "/自己的现有大文件目录" --apply
+   参数填写已存在的绝对目录。大文件可放外盘或普通文件夹；只记录到 .local/storage.json，不搬文件、不改 Docker 或工具输出。之后在 hub.config.json 和 catalog/assets.json 中维护自己的根目录及登记，改完运行 node scripts/hub.mjs validate。
+
+4. 规则按需采用，先预览合并，保留原约束：
+   docs/hub/README.md：交付、UI、文档、存储等详细规范。
+   examples/codex/GLOBAL-AGENTS-SNIPPET.md：可选全局短路由及临时子 agent 约定。
+   templates/workspace/AGENTS.md：工作空间模板。
+   templates/entity/AGENTS.md：独立项目模板，Hub init 只补缺失文件。
+   把模板占位换成实际 Hub 目录。父目录 AGENTS 不保证覆盖独立 Git 仓库；各项目留短入口，或自行选用全局短路由。不需要另下载独立 agent。
+
+5. 给新会话复制短索引：
+   node scripts/hub.mjs reference --id demo-project
+   查入口使用 node scripts/hub.mjs resolve --id demo-project。索引用于导航，不自动执行部署或设备操作。
+
+可交给 Codex：
+请读本目录 README，按我的实际目录配置 Hub，先用一个项目验证登记和短索引。保留已有项目约束；在已有授权内读取我的全局规则，参考可选全局片段和工作空间、项目模板最小合并并去重，不整份覆盖或改无关设置。详细规范按任务读取，旧项目只补缺失内容，不批量修改、迁移或清理资料。
+
+基础部署已在 macOS 验证；Windows/Linux 尚未实机验收。先手动启动；4176 被占用时不要覆盖原服务。详细说明见 docs/share/README.md，许可与来源见 LICENSE 和 PROVENANCE.md。

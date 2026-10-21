@@ -1,0 +1,32 @@
+# Dependencies and generated application files
+node_modules/
+.next/
+out/
+build/
+dist/
+next-env.d.ts
+*.tsbuildinfo
+
+# Machine-specific project inventory, profiles, preferences and output
+/hub.config.json
+/catalog/
+.local/
+.hub-state/
+.cache/
+.worktrees/
+.codex/
+.agents/
+.claude/
+.mcp.json
+
+# Credentials and local environment
+.env
+.env.*
+*.pem
+*.key
+
+# Generated source bundles and diagnostic files
+workspace-hub-share-*.zip
+workspace-hub-share-*-*.txt
+*.log
+.DS_Store

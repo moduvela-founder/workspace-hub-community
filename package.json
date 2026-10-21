@@ -1,0 +1,44 @@
+{
+  "name": "@moduvela/workspace-hub",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local workspace catalogue and documentation workflow, adapted from Project Minder",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moduvela-founder/workspace-hub-community.git"
+  },
+  "homepage": "https://github.com/moduvela-founder/workspace-hub-community#readme",
+  "bugs": {
+    "url": "https://github.com/moduvela-founder/workspace-hub-community/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "next dev -p 4176 -H 127.0.0.1",
+    "build": "next build",
+    "start": "next start -p 4176 -H 127.0.0.1",
+    "hub": "node scripts/hub.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "service": "node scripts/hub-service.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "lucide-react": "0.577.0",
+    "js-yaml": "4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.17",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "@types/js-yaml": "4.0.9",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  },
+  "type": "module"
+}
