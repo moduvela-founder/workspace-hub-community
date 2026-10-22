@@ -1,7 +1,7 @@
 ---
 schemaVersion: 1
-id: workspace-hub
-title: Workspace Hub
+id: workspace-hub-community
+title: Workspace Hub Community
 kind: tool
 goal: 提供可独立部署的本地工作空间看板、短索引与共享开发规则
 stage: validation
